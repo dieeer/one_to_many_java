@@ -1,4 +1,6 @@
-package models;
+package com.example.onetomanylab.models;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
@@ -21,6 +23,7 @@ public class Employee {
 
     @ManyToOne
     @JoinColumn(name = "departmentId", nullable = true)
+    @JsonIgnoreProperties({"employees"})
     private Department department;
 
     public Employee(String firstName, String secondName, int employeeNumber, Department department){
